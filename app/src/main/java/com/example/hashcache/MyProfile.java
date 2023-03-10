@@ -27,13 +27,12 @@ import com.example.hashcache.models.ImageGenerator;
 
 public class MyProfile extends AppCompatActivity {
     private ImageView imageView;
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_profile);
         imageView = findViewById(R.id.imageView);
-        Bitmap bitmap = ImageGenerator.generateImage(getApplicationContext());
+        Bitmap bitmap = ImageGenerator.generateImage(getResources());
         imageView.setImageBitmap(bitmap);
         // add functionality to logo button
         ImageButton logoButton = findViewById(R.id.logo_button);

@@ -12,7 +12,7 @@ import java.io.InputStream;
 
 public class ImageGenerator {
 
-    public static Bitmap generateImage(Context context) {
+    public static Bitmap generateImage(Resources resources) {
         // example 64-bit binary string
         long binaryString = 0b1101100101010110001001101111101110010100100111110101101100001000L;
 
@@ -23,11 +23,10 @@ public class ImageGenerator {
         int ears = (int) ((binaryString >> 6) & 0b11);
 
         // load the image files for different parts
-        Resources resources = context.getResources();
-        Bitmap headImg = BitmapFactory.decodeResource(resources, getDrawableResourceId("head"));
-        Bitmap eyesImg = BitmapFactory.decodeResource(resources, getDrawableResourceId("eyes"));
-        Bitmap bodyImg = BitmapFactory.decodeResource(resources, getDrawableResourceId("body"));
-        Bitmap earsImg = BitmapFactory.decodeResource(resources, getDrawableResourceId("ears"));
+        Bitmap headImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "head"));
+        Bitmap eyesImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "eyes"));
+        Bitmap bodyImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "body"));
+        Bitmap earsImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "ears"));
 
         // create a new image of appropriate size
         int width = Math.max(headImg.getWidth(), earsImg.getWidth());
@@ -59,8 +58,9 @@ public class ImageGenerator {
         return image;
     }
 
-    private static int getDrawableResourceId(String name) {
-        return Resources.getSystem().getIdentifier(name, "drawable", "android");
+    private static int getDrawableResourceId(Resources resources, String name) {
+        return resources.getIdentifier(name, "drawable", "com.example.hashcache");
     }
+
 
 }
