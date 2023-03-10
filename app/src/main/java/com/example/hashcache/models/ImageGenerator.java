@@ -28,6 +28,12 @@ public class ImageGenerator {
         Bitmap bodyImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "body"));
         Bitmap earsImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "ears"));
 
+        // resize the bitmaps to reduce their size
+        headImg = Bitmap.createScaledBitmap(headImg, headImg.getWidth() / 2, headImg.getHeight() / 2, false);
+        eyesImg = Bitmap.createScaledBitmap(eyesImg, eyesImg.getWidth() / 2, eyesImg.getHeight() / 2, false);
+        bodyImg = Bitmap.createScaledBitmap(bodyImg, bodyImg.getWidth() / 2, bodyImg.getHeight() / 2, false);
+        earsImg = Bitmap.createScaledBitmap(earsImg, earsImg.getWidth() / 2, earsImg.getHeight() / 2, false);
+
         // create a new image of appropriate size
         int width = Math.max(headImg.getWidth(), earsImg.getWidth());
         int height = headImg.getHeight() + eyesImg.getHeight() + bodyImg.getHeight();
@@ -57,6 +63,8 @@ public class ImageGenerator {
 
         return image;
     }
+
+
 
     private static int getDrawableResourceId(Resources resources, String name) {
         return resources.getIdentifier(name, "drawable", "com.example.hashcache");
