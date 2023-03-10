@@ -1,10 +1,15 @@
 package com.example.hashcache.controllers;
 
+
+import android.content.res.Resources;
+
 import com.example.hashcache.models.HashInfo;
 import com.example.hashcache.models.ScannableCode;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,14 +17,15 @@ public class HashInfoGenerator {
 
     public static class NameGenerator{
 
+        static ArrayList<String> names;
         /**
          * Generates the monsters name.
          * @param hashValue contains the hash associated to the qr code
          * @return a string that represents the monsters name
          */
-        public static String generateName(ScannableCode hashValue){
+        public static String generateName(long hashValue, Resources resources){
             //generate the name from the hash information
-            long hashCode = hashValue.hashCode();
+            long hashCode = hashValue;
 
             return generateFunnyName(hashCode).concat(generateRealName(hashCode));
         }
@@ -51,23 +57,21 @@ public class HashInfoGenerator {
          * @return The monsters reals name
          */
         private static String generateRealName(long bitmap) {
-            ArrayList<String> names = getNames();
             int idx = getBits(bitmap, 12, 10);
             return names.get(idx);
         }
 
         /**
          * Reads from a csv file the first 1024 names then stores them in a ArrayList
-         * @return list of names
          */
-        private static ArrayList<String> getNames() {
+        private static void getNames(Resources resources) {
             String filename = "assets/names.csv";
-            ArrayList<String> names = new ArrayList<String>();
+            names = new ArrayList<String>();
             String temp;
 
             try {
-                File file =  new File(filename);
-                Scanner scan = new Scanner(file);
+                InputStream is = resources.getAssets().open(filename);
+                Scanner scan = new Scanner(is);
 
                 // Set the delim
                 scan.useDelimiter("\n");
@@ -80,9 +84,10 @@ public class HashInfoGenerator {
                 scan.close();
             }  catch(FileNotFoundException e) {
                 e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
-            return names;
         }
 
 

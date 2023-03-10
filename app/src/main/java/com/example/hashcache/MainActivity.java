@@ -9,11 +9,13 @@ package com.example.hashcache;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import com.example.hashcache.controllers.AddUserCommand;
+import com.example.hashcache.controllers.HashInfoGenerator;
 import com.example.hashcache.controllers.PlayerWalletCommander;
 import com.example.hashcache.database_connections.ScannableCodesConnectionHandler;
 import com.example.hashcache.database_connections.callbacks.BooleanCallback;
@@ -23,6 +25,8 @@ import com.example.hashcache.models.PlayerList;
 import com.example.hashcache.models.ScannableCode;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 //        FirebaseApp.initializeApp(this, new FirebaseOptions.Builder()
 //                .setApplicationId("1:343583306337:android:d5e9ae9095f25cb5b4f020")
 //                .setApiKey("AIzaSyD25aeFyGGaQ9nSNs5QFSJXLfQm6gFb9kM")
@@ -53,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
                 .setProjectId("hashcache2")
                 .build());
 
+
         addUserCommand = new AddUserCommand();
         PlayerList.getInstance();
-
         // add functionality to start button
         AppCompatButton startButton = findViewById(R.id.start_button);
         usernameEditText = findViewById(R.id.username_edittext);
@@ -66,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
                 onStartCachingClicked();
             }
         });
+
+        long a = new Random().nextLong();
+        String n = HashInfoGenerator.NameGenerator.generateName(a, getResources());
+        System.out.println(n);
     }
 
     private void onStartCachingClicked(){

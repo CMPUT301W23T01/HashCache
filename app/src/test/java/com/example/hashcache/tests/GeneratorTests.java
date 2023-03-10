@@ -5,9 +5,11 @@ import com.example.hashcache.models.HashInfo;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Random;
+
 // TODO to be implemented at a later date
 public class GeneratorTests {
     @Test
-    void nameGeneraterTest() {
+    void nameGeneratorTest() {
     }
 }
