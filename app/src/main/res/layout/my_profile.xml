@@ -8,11 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
 
         <View
             android:id="@+id/purple_rect"
@@ -60,6 +55,13 @@
             android:layout_alignParentEnd="true"
             android:elevation="6dp"/>
     </RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:background="@color/white"
+        android:layout_below="@id/header"/>
 
     <ListView
         android:id="@+id/temp_list"
