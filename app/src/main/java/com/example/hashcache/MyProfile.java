@@ -10,22 +10,31 @@
 
 package com.example.hashcache;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.PopupMenu;
 
+import com.example.hashcache.models.ImageGenerator;
+
 public class MyProfile extends AppCompatActivity {
+    private ImageView imageView;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_profile);
-
+        imageView = findViewById(R.id.imageView);
+        Bitmap bitmap = ImageGenerator.generateImage();
+        imageView.setImageBitmap(bitmap);
         // add functionality to logo button
         ImageButton logoButton = findViewById(R.id.logo_button);
         logoButton.setOnClickListener(new View.OnClickListener() {

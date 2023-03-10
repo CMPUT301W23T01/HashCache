@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "901109849854",
+    "project_id": "hashcache2",
+    "storage_bucket": "hashcache2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901109849854:android:59c5ab124b7d20ef1d4faf",
+        "android_client_info": {
+          "package_name": "com.example.hashcache"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "901109849854-rtg0q0fbvdmq23q34pq270an2pcmrb7j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbOhuWDn2sYOsEkslCjercBYitb2MLMho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "901109849854-rtg0q0fbvdmq23q34pq270an2pcmrb7j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

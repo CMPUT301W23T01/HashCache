@@ -23,6 +23,8 @@ public class HashInfoGenerator {
     public static class ImageGenerator{
         protected static String generateImage(Object hashValue){
             //generate the image from the hash information
+            long binaryString = 0b1101100101010110001001101111101110010100100111110101101100001000L;
+
 
             return null;
         }
