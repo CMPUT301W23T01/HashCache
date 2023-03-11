@@ -15,22 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HashCache"
         tools:targetApi="31">
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".AppHome"/>
-        <activity android:name=".QRStats"/>
-        <activity android:name=".MyProfile"/>
-        <activity android:name=".Community"/>
-        <activity android:name=".QRByLocation"/>
-        <activity android:name=".Settings"/>
-        <activity android:name=".QRScanActivity"/>
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
             android:authorities="${applicationId}.firebaseinitprovider"
