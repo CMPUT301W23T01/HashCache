@@ -33,7 +33,7 @@ public class MyProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_profile);
         imageView = findViewById(R.id.imageView);
-        Bitmap bitmap = ImageGenerator.generateImage(getResources(), 400, 400);
+        Bitmap bitmap = ImageGenerator.generateImage(getResources(), 3000, 3000,670,200,760,700,30,500,950,1300);
         imageView.setImageBitmap(bitmap);
         // add functionality to logo button
         ImageButton logoButton = findViewById(R.id.logo_button);

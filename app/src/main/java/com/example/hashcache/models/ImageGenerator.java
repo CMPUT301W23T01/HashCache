@@ -39,7 +39,7 @@ public class ImageGenerator {
 
         // load the image files for different parts
         Bitmap headImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "head"));
-        Bitmap eyesImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "eyes"+2));
+        Bitmap eyesImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "eyes"+3));
         Bitmap bodyImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "body"+2));
         Bitmap mouthImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "mouth"+2));
 
