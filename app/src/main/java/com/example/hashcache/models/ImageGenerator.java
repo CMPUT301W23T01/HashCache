@@ -38,19 +38,19 @@ public class ImageGenerator {
         }
 
         // load the image files for different parts
-        Bitmap headImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "head.png"));
+        Bitmap headImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "head"));
         if (headImg == null) {
             Log.e("ImageGenerator", "headImg is null");
         }
-        Bitmap eyesImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "eyes"+1+".png"));
+        Bitmap eyesImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "eyes"+2));
         if (eyesImg == null) {
             Log.e("ImageGenerator", "eyesImg is null");
         }
-        Bitmap bodyImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "body"+1+".png"));
+        Bitmap bodyImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "body"+2));
         if (bodyImg == null) {
             Log.e("ImageGenerator", "bodyImg is null");
         }
-        Bitmap mouthImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "mouth"+1+".png"));
+        Bitmap mouthImg = BitmapFactory.decodeResource(resources, getDrawableResourceId(resources, "mouth"+2));
         if (mouthImg == null) {
             Log.e("ImageGenerator", "mouthImg is null");
         }
