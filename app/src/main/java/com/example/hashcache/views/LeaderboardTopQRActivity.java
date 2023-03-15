@@ -13,6 +13,7 @@ import androidx.appcompat.widget.PopupMenu;
 
 import com.example.hashcache.R;
 import com.example.hashcache.models.Player;
+import com.example.hashcache.models.ScannableCode;
 import com.example.hashcache.models.database.Database;
 import com.example.hashcache.store.AppStore;
 
@@ -58,7 +59,11 @@ public class LeaderboardTopQRActivity extends AppCompatActivity {
                         }
                     });
                 });
-        playersTopQrCode.setText(String.valueOf(playerTopQrScore));
+
+
+        long valueOfUser= AppStore.get().getHighestScannableCode().getHashInfo().getGeneratedScore();
+        playersTopQrCode.setText(String.valueOf(valueOfUser));
+        //playersTopQrCode.setText(String.valueOf(playerTopQrScore));
 
         // Gets the text view for the user names
         ArrayList<TextView> userNames = new ArrayList<>();

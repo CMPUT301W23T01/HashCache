@@ -57,7 +57,7 @@ public class LeaderboardNumQRActivity extends AppCompatActivity {
                 });
 
 
-        IPlayerDatabase database = Database.getInstance();
+
         int value= AppStore.get().getCurrentPlayer().getPlayerWallet().getScannedCodeIds().size();
         playersNumQrCodes.setText(String.valueOf(value));
         //playersNumQrCodes.setText(String.valueOf(numQrCodes));
