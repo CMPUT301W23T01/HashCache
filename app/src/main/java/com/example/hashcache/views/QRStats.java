@@ -161,12 +161,17 @@ public class QRStats extends AppCompatActivity implements Observer {
     private void highestScoringCodeClicked() {
         ScannableCode highestScan = AppStore.get().getHighestScannableCode();
         AppStore.get().setCurrentScannableCode(highestScan);
-        startActivity(new Intent(QRStats.this, DisplayMonsterActivity.class));
+        Intent intent = new Intent(getApplicationContext(), DisplayMonsterActivity.class);
+        intent.putExtra("belongsToCurrentUser", true);
+        startActivity(intent);
     }
 
     private void lowestScoringCodeClicked() {
         ScannableCode lowestScan = AppStore.get().getLowestScannableCode();
-        startActivity(new Intent(QRStats.this, DisplayMonsterActivity.class));
+        AppStore.get().setCurrentScannableCode(lowestScan);
+        Intent intent = new Intent(getApplicationContext(), DisplayMonsterActivity.class);
+        intent.putExtra("belongsToCurrentUser", true);
+        startActivity(intent);
     }
 
     private void init() {
