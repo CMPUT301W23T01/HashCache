@@ -2,6 +2,7 @@ package com.example.hashcache.views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -12,11 +13,12 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.PopupMenu;
 
 import com.example.hashcache.R;
-import com.example.hashcache.models.Player;
 import com.example.hashcache.models.database.Database;
+import com.example.hashcache.models.database.IPlayerDatabase;
 import com.example.hashcache.store.AppStore;
 
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -57,7 +59,17 @@ public class LeaderboardScoreActivity extends AppCompatActivity {
                         }
                     });
                 });
-        playersNumQrCodes.setText(String.valueOf(playerScores));
+
+
+
+        IPlayerDatabase database = Database.getInstance();
+        CompletableFuture<Long> value = database.getPlayerWalletTotalScore(AppStore.get().getCurrentPlayer().getPlayerWallet().getScannedCodeIds());
+        value.thenAccept(value1 ->{
+            playersNumQrCodes.setText(String.valueOf(value1));
+        });
+
+        //OLD CODE FOR THIS ^^
+        //playersNumQrCodes.setText(String.valueOf(test[0]));
 
         // Get the text views needed to set the leaderboard
         ArrayList<TextView> userNames = new ArrayList<>();
