@@ -63,13 +63,13 @@ public class LeaderboardScoreActivity extends AppCompatActivity {
 
 
         IPlayerDatabase database = Database.getInstance();
-        CompletableFuture<Long> value = database.getPlayerWalletTotalScore(AppStore.get().getCurrentPlayer().getPlayerWallet().getScannedCodeIds());
-        value.thenAccept(value1 ->{
-            playersNumQrCodes.setText(String.valueOf(value1));
+        CompletableFuture<Long> valueft = database.getPlayerWalletTotalScore(AppStore.get().getCurrentPlayer().getPlayerWallet().getScannedCodeIds());
+        valueft.thenAccept(value ->{
+            playersNumQrCodes.setText(String.valueOf(value));
         });
 
         //OLD CODE FOR THIS ^^
-        //playersNumQrCodes.setText(String.valueOf(test[0]));
+        //playersNumQrCodes.setText(String.valueOf(playerScores));
 
         // Get the text views needed to set the leaderboard
         ArrayList<TextView> userNames = new ArrayList<>();

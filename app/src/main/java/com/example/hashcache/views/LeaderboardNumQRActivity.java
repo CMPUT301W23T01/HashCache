@@ -14,10 +14,12 @@ import androidx.appcompat.widget.PopupMenu;
 import com.example.hashcache.R;
 import com.example.hashcache.models.Player;
 import com.example.hashcache.models.database.Database;
+import com.example.hashcache.models.database.IPlayerDatabase;
 import com.example.hashcache.store.AppStore;
 import com.google.firebase.firestore.CollectionReference;
 
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -53,7 +55,12 @@ public class LeaderboardNumQRActivity extends AppCompatActivity {
                         }
                     });
                 });
-        playersNumQrCodes.setText(String.valueOf(numQrCodes));
+
+
+        IPlayerDatabase database = Database.getInstance();
+        int value= AppStore.get().getCurrentPlayer().getPlayerWallet().getScannedCodeIds().size();
+        playersNumQrCodes.setText(String.valueOf(value));
+        //playersNumQrCodes.setText(String.valueOf(numQrCodes));
 
         // Get the text views needed to set the leaderboard
         ArrayList<TextView> userNames = new ArrayList<>();
