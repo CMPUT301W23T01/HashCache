@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.example.hashcache.R;
 import com.example.hashcache.controllers.LogoutCommand;
@@ -76,13 +77,16 @@ public class SettingsActivity extends AppCompatActivity implements Observer {
             }
         });
 
+        // open EditPlayerInfoFragment when edit info button clicked
         editInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SettingsActivity.this, EditPlayerInfoActivity.class));
+            public void onClick(View view) {
+                DialogFragment editInfo = new EditPlayerInfoFragment();
+                editInfo.show(getSupportFragmentManager(), editInfo.getTag());
             }
         });
 
+        // add functionality to logout button
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
